@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Add Thing to do</h1>
+  <div class="idkmate">
+    <form [formGroup]="taskForm" (ngSubmit)="onSumit()">
+      <div class="form-group">
+        <label for="thing">Thing to do : </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="thing"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="time">Time : </label>
+        <input
+          type="time"
+          class="form-control"
+          formControlName="time"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description : </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="description"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <button class="btn" type="submit">Add To Do</button>
+      </div>
+    </form>
+  </div>
+</div>
