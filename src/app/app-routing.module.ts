@@ -8,7 +8,7 @@ import { TasklistComponent } from './components/tasklist/tasklist.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'tasklist' },
   { path: 'add-task', component: AddTaskComponent },
-  { path: 'edit-task/:id', component: TaskEditComponent },
+  { path: 'edit-task/:index', component: TaskEditComponent },
   { path: 'tasklist', component: TasklistComponent },
 ];
 
