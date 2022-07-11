@@ -9,6 +9,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Task</th>
+          <th scope="col">Date</th>
           <th scope="col">Time</th>
           <th scope="col">Description</th>
           <th scope="col">Action</th>
@@ -20,6 +21,7 @@
         <tr *ngFor="let a of tasks; let i = index">
           <td>{{ i + 1 }}</td>
           <td>{{ a.thing }}</td>
+          <td>{{ a.date }}</td>
           <td>{{ a.time }}</td>
           <td>{{ a.description }}</td>
           <td>
@@ -29,6 +31,9 @@
               routerLink="/edit-task/{{ i }}"
             >
               Edit
+            </button>
+            <button class="btn-danger btn-block" (click)="onDelete(i)">
+              Delelte
             </button>
           </td>
         </tr>

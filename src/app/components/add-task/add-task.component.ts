@@ -12,14 +12,21 @@ export class AddTaskComponent implements OnInit {
   taskForm: FormGroup;
 
   constructor(
-    public FormBuilder: FormBuilder,
+    public formBuilder: FormBuilder,
     private router: Router,
     private taskService: TaskService
   ) {
-    this.taskForm = this.FormBuilder.group({
+    this.taskForm = this.formBuilder.group({
       thing: [''],
+      date: [''],
       time: [''],
       description: [''],
+    });
+  }
+  getTaskFromData(data: any) {
+    console.warn(data);
+    this.taskService.saveTask(data).subscribe((result) => {
+      console.warn(result);
     });
   }
 
