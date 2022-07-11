@@ -41,17 +41,24 @@ export class TaskService {
 
   constructor(private httpClient: HttpClient) {}
   //test in local 3001 create from node-backend
-  configUrl = 'http://localhost:3001/api/people';
-  getConfig() {
-    return this.httpClient.get(this.configUrl);
-  }
+  // configUrl = 'http://localhost:3001/api/people';
+  // getConfig() {
+  //   return this.httpClient.get(this.configUrl);
+  // }
   //
-  mongodbUrl =
-    'mongodb+srv://padkung:gameincom@cluster0.xtaxndh.mongodb.net/padApp?retryWrites=true&w=majority';
-  mongodbConfig() {
-    return this.httpClient.get(this.mongodbUrl);
-  }
+  mongodbUrl = 'http://localhost:3001/api/task';
+
   saveTask(data: any) {
     return this.httpClient.post(this.mongodbUrl, data);
+  }
+  getTask() {
+    return this.httpClient.get(this.mongodbUrl);
+  }
+  deleteTask(data: any) {
+    console.log(data);
+    return this.httpClient.delete(this.mongodbUrl + '/' + data._id);
+  }
+  updateTask(data: any) {
+    return this.httpClient.put(this.mongodbUrl, data);
   }
 }

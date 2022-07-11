@@ -38,6 +38,9 @@ export class TaskEditComponent implements OnInit {
   onEdit(): any {
     console.log(this.taskForm.value);
     this.taskService.edit(this.x, this.taskForm.value);
+    this.taskService
+      .updateTask(this.taskForm.value)
+      .subscribe((result) => console.log(result));
     this.router.navigateByUrl('/tasklist');
   }
 }

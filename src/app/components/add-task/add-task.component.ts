@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-task',
@@ -23,17 +24,20 @@ export class AddTaskComponent implements OnInit {
       description: [''],
     });
   }
-  getTaskFromData(data: any) {
-    console.warn(data);
-    this.taskService.saveTask(data).subscribe((result) => {
-      console.warn(result);
-    });
-  }
+  // getTaskFromData(data: any) {
+  //   console.warn(data);
+  //   this.taskService.saveTask(data).subscribe((result) => {
+  //     console.warn(result);
+  //   });
+  // } first attempt
 
   ngOnInit(): void {}
   onSumit(): any {
     console.log(this.taskForm.value);
     this.taskService.add(this.taskForm.value);
+    this.taskService
+      .saveTask(this.taskForm.value)
+      .subscribe((result) => console.log(result));
     this.router.navigateByUrl('/tasklist');
   }
 }
