@@ -18,6 +18,7 @@ export class TaskEditComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.taskForm = this.formBuilder.group({
+      _id: [''],
       thing: [''],
       date: [''],
       time: [''],
@@ -33,14 +34,15 @@ export class TaskEditComponent implements OnInit {
     this.x = this.route.snapshot.paramMap.get('index');
     console.log(this.x);
     this.taskForm.patchValue(this.tasks[parseInt(this.x as string)]);
-    console.log(this.taskForm);
+    console.log(this.tasks);
   }
   onEdit(): any {
-    console.log(this.taskForm.value);
-    this.taskService.edit(this.x, this.taskForm.value);
+    //this.taskService.edit(this.x, this.taskForm.value);
+
+    console.log(this.taskForm);
     this.taskService
       .updateTask(this.taskForm.value)
-      .subscribe((result) => console.log(result));
+      .subscribe((result) => result);
     this.router.navigateByUrl('/tasklist');
   }
 }

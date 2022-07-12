@@ -13,15 +13,16 @@ export class TasklistComponent implements OnInit {
   tasks: any[] = [];
   ngOnInit(): void {
     this.tasks = this.taskService.alltask;
-    this.taskService
-      .getTask()
-      .subscribe((result) => (this.tasks = result as any));
+    this.taskService.getTask().subscribe((result) => {
+      this.tasks = result as any;
+      this.taskService.alltask = result as any;
+    });
 
     //this.taskService.getConfig().subscribe((result) => console.log(result)); // doo api from local 3001 test
   }
   onEdit() {}
   onDelete(i: number) {
-    this.taskService.delete(i);
+    //this.taskService.delete(i);
     this.taskService.deleteTask(this.tasks[i]).subscribe();
   }
 }
