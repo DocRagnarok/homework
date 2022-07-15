@@ -23,6 +23,9 @@ export class TasklistComponent implements OnInit {
   onEdit() {}
   onDelete(i: number) {
     //this.taskService.delete(i);
-    this.taskService.deleteTask(this.tasks[i]).subscribe();
+
+    this.taskService.deleteTask(this.tasks[i]).subscribe((result) => {
+      this.tasks.splice(i, 1);
+    });
   }
 }

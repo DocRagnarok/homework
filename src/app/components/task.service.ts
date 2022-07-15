@@ -55,7 +55,6 @@ export class TaskService {
     return this.httpClient.get(this.mongodbUrl);
   }
   deleteTask(data: any) {
-    console.log(data);
     return this.httpClient.delete(this.mongodbUrl + '/' + data._id);
   }
   updateTask(data: any) {

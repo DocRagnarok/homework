@@ -6,10 +6,22 @@
         <label for="thing">Thing to do : </label>
         <input
           type="text"
+          pInputText
           class="form-control"
           formControlName="thing"
-          required
+          ngModel
+          maxlength="50"
         />
+        <small
+          id="thing-help"
+          style="color: red"
+          class="p-error"
+          *ngIf="
+            taskForm.controls['thing'].invalid &&
+            taskForm.controls['thing'].touched
+          "
+          >Please Insert Something</small
+        >
       </div>
       <div class="form-group">
         <label for="date">date : </label>
@@ -17,6 +29,9 @@
           type="date"
           class="form-control"
           formControlName="date"
+          ngModel
+          max="2023-12-31"
+          onkeydown="return false"
           required
         />
       </div>
@@ -35,8 +50,20 @@
           type="text"
           class="form-control"
           formControlName="description"
+          ngModel
+          maxlength="50"
           required
         />
+        <small
+          id="description-help"
+          style="color: red"
+          class="p-error"
+          *ngIf="
+            taskForm.controls['description'].invalid &&
+            taskForm.controls['description'].touched
+          "
+          >Please Insert Something</small
+        >
       </div>
       <div class="form-group">
         <button class="btn-primary btn-block" type="submit">Add To Do</button>
