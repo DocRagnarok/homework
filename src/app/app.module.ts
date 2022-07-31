@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RxjsTrainComponent } from './components/rxjs-train/rxjs-train.component';
+import { TesterComponent } from './components/tester/tester.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AddTaskComponent,
     TaskEditComponent,
     TasklistComponent,
+    RxjsTrainComponent,
+    TesterComponent,
   ],
   imports: [
     BrowserModule,
